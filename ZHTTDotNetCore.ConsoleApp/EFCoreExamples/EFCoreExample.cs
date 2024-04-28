@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZHTTDotNetCore.ConsoleApp.Dtos;
 
-namespace ZHTTDotNetCore.ConsoleApp
+namespace ZHTTDotNetCore.ConsoleApp.EFCoreExamples
 {
     internal class EFCoreExample
     {
@@ -32,7 +33,7 @@ namespace ZHTTDotNetCore.ConsoleApp
                 Console.WriteLine("-----------------------------");
             }
         }
-        private void Edit (int id)
+        private void Edit(int id)
         {
             var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
@@ -47,7 +48,7 @@ namespace ZHTTDotNetCore.ConsoleApp
             Console.WriteLine("-----------------------------");
 
         }
-        private void Create(string title,  string author, string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {

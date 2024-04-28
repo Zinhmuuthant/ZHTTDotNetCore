@@ -7,13 +7,15 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using ZHTTDotNetCore.ConsoleApp.Dtos;
+using ZHTTDotNetCore.ConsoleApp.Setting;
 
-namespace ZHTTDotNetCore.ConsoleApp
+namespace ZHTTDotNetCore.ConsoleApp.DapperExamples
 {
 
     internal class DapperExample
     {
-        public void Run ()
+        public void Run()
         {
             //Read();
             // Edit(1);
@@ -42,8 +44,8 @@ namespace ZHTTDotNetCore.ConsoleApp
         public void Edit(int id)
         {
             using IDbConnection db = new SqlConnection(ConnectionString.SqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogDto>("select * from tbl_blob where blogid = @BlogId", new BlogDto { BlogId = id}).FirstOrDefault();
-            if(item is null)
+            var item = db.Query<BlogDto>("select * from tbl_blob where blogid = @BlogId", new BlogDto { BlogId = id }).FirstOrDefault();
+            if (item is null)
             {
                 Console.WriteLine("No data found.");
                 return;
@@ -110,7 +112,7 @@ namespace ZHTTDotNetCore.ConsoleApp
             var item = new BlogDto
             {
                 BlogId = id,
-                
+
 
             };
             string query = @"Delete from [dbo].[TBl_Blog] WHERE BlogId = @BlogId";

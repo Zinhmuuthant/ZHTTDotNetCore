@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using System.Reflection.Metadata;
 
-namespace ZHTTDotNetCore.ConsoleApp
+namespace ZHTTDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -79,7 +79,7 @@ namespace ZHTTDotNetCore.ConsoleApp
 
             connection.Close();
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
 
 
@@ -89,17 +89,17 @@ namespace ZHTTDotNetCore.ConsoleApp
             DataRow dr = dt.Rows[0];
             Console.WriteLine("Connection close.");
 
-            
-            
-                Console.WriteLine(dr["BlogId"]);
-                Console.WriteLine(dr["BlogTitle"]);
-                Console.WriteLine(dr["BlogAuthor"]);
-                Console.WriteLine(dr["BlogContent"]);
-                Console.WriteLine("--------------------------");
+
+
+            Console.WriteLine(dr["BlogId"]);
+            Console.WriteLine(dr["BlogTitle"]);
+            Console.WriteLine(dr["BlogAuthor"]);
+            Console.WriteLine(dr["BlogContent"]);
+            Console.WriteLine("--------------------------");
 
 
 
-            
+
 
 
 
@@ -127,9 +127,9 @@ namespace ZHTTDotNetCore.ConsoleApp
 		   ,@BlogAuthor
 		   ,@BlogContent)";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogTitle",title);
-            cmd.Parameters.AddWithValue("@BlogAuthor",author );
-            cmd.Parameters.AddWithValue("@BlogContent",content);
+            cmd.Parameters.AddWithValue("@BlogTitle", title);
+            cmd.Parameters.AddWithValue("@BlogAuthor", author);
+            cmd.Parameters.AddWithValue("@BlogContent", content);
             int result = cmd.ExecuteNonQuery();
 
 
@@ -180,7 +180,7 @@ namespace ZHTTDotNetCore.ConsoleApp
             string query = @"delete from TBl_blog  where BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogId", id);
-            
+
             int result = cmd.ExecuteNonQuery();
 
 
@@ -197,6 +197,6 @@ namespace ZHTTDotNetCore.ConsoleApp
 
 
         }
-    
+
     }
 }

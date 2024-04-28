@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Net.Http.Headers;
-using ZHTTDotNetCore.ConsoleApp;
+using ZHTTDotNetCore.ConsoleApp.EFCoreExamples;
 
 Console.WriteLine("Hello World");
 
